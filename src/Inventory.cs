@@ -10,16 +10,16 @@ class Item
     public int healing;
     public double weight;
     public bool isConsumable;
-    public int quantity;
+    public int nutrition;
 
-    public Item(string name, int maxStack, int durability, int damage, bool isConsumable, int quantity, int healing, double weight)
+    public Item(string name, int maxStack, int durability, int damage, bool isConsumable, int nutrition, int healing, double weight)
     {
         this.name = name;
         this.maxStack = maxStack;
         this.durability = durability;
         this.damage = damage;
         this.isConsumable = isConsumable;
-        this.quantity = quantity;
+        this.nutrition = nutrition;
         this.healing = healing;
         this.weight = weight;
     }
