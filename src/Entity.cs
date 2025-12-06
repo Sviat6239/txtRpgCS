@@ -7,9 +7,26 @@ class Entity
     public int XP;
     public int hunger;
 
-    public Inventory inventory = new Inventory();
+    public double maxWeight;
+    public Inventory inventory;
 
     private Random rng = new Random();
+
+    public Entity(double maxWeight)
+    {
+        this.maxWeight = maxWeight;
+        inventory = new Inventory(this);
+    }
+
+    public double CurrentCarryWeight()
+    {
+        return inventory.CurrentWeight();
+    }
+
+    public double FreeWeight()
+    {
+        return maxWeight - inventory.CurrentWeight();
+    }
 
     public void TakeDamage(int amount)
     {
@@ -26,7 +43,9 @@ class Entity
 
     public void EatFood(string itemName)
     {
-        InventorySlot slot = inventory.slots.Find(s => s.Item.name == itemName && s.Item.isConsumable);
+        InventorySlot slot = inventory.slots.Find(s =>
+            s.Item.name == itemName && s.Item.isConsumable);
+
         if (slot != null)
         {
             hunger += slot.Item.nutrition;
@@ -41,7 +60,7 @@ class Entity
 
     public void DecreaseHungerPerTurn()
     {
-        int hungerLoss = rng.Next(4, 7); // 4-6
+        int hungerLoss = rng.Next(4, 7);
         if (HP < 50)
             hungerLoss *= 2;
 
@@ -59,19 +78,6 @@ class Entity
     public void IfStarve()
     {
         if (hunger <= 0)
-        {
             TakeDamage(3);
-        }
     }
-}
-
-
-class Player : Entity
-{
-    public int gold;
-}
-
-class Mob : Entity
-{
-    public string name;
 }
