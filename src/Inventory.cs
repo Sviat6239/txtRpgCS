@@ -12,7 +12,8 @@ class Item
     public bool isConsumable;
     public int nutrition;
 
-    public Item(string name, int maxStack, int durability, int damage, bool isConsumable, int nutrition, int healing, double weight)
+    public Item(string name, int maxStack, int durability, int damage,
+        bool isConsumable, int nutrition, int healing, double weight)
     {
         this.name = name;
         this.maxStack = maxStack;
@@ -40,23 +41,31 @@ class InventorySlot
 class Inventory
 {
     public List<InventorySlot> slots = new List<InventorySlot>();
-    public double weight;
+    public double maxWeight;
 
     public double CurrentWeight()
     {
         double total = 0;
         foreach (var slot in slots)
-        {
             total += slot.Count * slot.Item.weight;
-        }
+
         return total;
     }
 
-    public void AddItem(Item item, int amount)
+    public bool AddItem(Item item, int amount)
     {
+        double addedWeight = item.weight * amount;
+
+        if (CurrentWeight() + addedWeight > maxWeight)
+        {
+            Console.WriteLine("Слишком тяжело! Инвентарь переполнен.");
+            return false;
+        }
+
         while (amount > 0)
         {
-            InventorySlot slot = slots.Find(s => s.Item.name == item.name && s.Count < s.Item.maxStack);
+            InventorySlot slot = slots.Find(s =>
+                s.Item.name == item.name && s.Count < s.Item.maxStack);
 
             if (slot != null)
             {
@@ -72,14 +81,14 @@ class Inventory
                 amount -= toAdd;
             }
         }
+
+        return true;
     }
 
     public void RemoveItem(Item item, int amount)
     {
         InventorySlot slot = slots.Find(s => s.Item.name == item.name);
-
-        if (slot == null)
-            return;
+        if (slot == null) return;
 
         slot.Count -= amount;
 
@@ -87,8 +96,8 @@ class Inventory
             slots.Remove(slot);
     }
 
-    public void LootPickUp(Item item, int amount)
+    public bool LootPickUp(Item item, int amount)
     {
-        AddItem(item, amount);
+        return AddItem(item, amount);
     }
 }
