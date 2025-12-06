@@ -40,6 +40,17 @@ class InventorySlot
 class Inventory
 {
     public List<InventorySlot> slots = new List<InventorySlot>();
+    public double weight;
+
+    public double CurrentWeight()
+    {
+        double total = 0;
+        foreach (var slot in slots)
+        {
+            total += slot.Count * slot.Item.weight;
+        }
+        return total;
+    }
 
     public void AddItem(Item item, int amount)
     {
