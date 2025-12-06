@@ -40,8 +40,13 @@ class InventorySlot
 
 class Inventory
 {
+    private Entity owner;
     public List<InventorySlot> slots = new List<InventorySlot>();
-    public double maxWeight;
+
+    public Inventory(Entity owner)
+    {
+        this.owner = owner;
+    }
 
     public double CurrentWeight()
     {
@@ -56,9 +61,8 @@ class Inventory
     {
         double addedWeight = item.weight * amount;
 
-        if (CurrentWeight() + addedWeight > maxWeight)
+        if (CurrentWeight() + addedWeight > owner.maxWeight)
         {
-            Console.WriteLine("Слишком тяжело! Инвентарь переполнен.");
             return false;
         }
 
@@ -95,9 +99,5 @@ class Inventory
         if (slot.Count <= 0)
             slots.Remove(slot);
     }
-
-    public bool LootPickUp(Item item, int amount)
-    {
-        return AddItem(item, amount);
-    }
 }
+
