@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime;
 
 class Program
 {
@@ -9,7 +7,7 @@ class Program
 
 
 
-    static void Main(string[] args)
+    static void Main()
     {
         bool isRunning = true;
 
@@ -17,6 +15,7 @@ class Program
 
         while (isRunning == true)
         {
+
 
         }
 
