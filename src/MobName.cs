@@ -488,4 +488,18 @@ class MobNames
         "WerewolfAlpha Beast",
         "WerewolfAlpha Wild",
     };
+
+    List<string> ZombieHordeNames = new List<string>()
+    {
+        "ZombieHorde Rot",
+        "ZombieHorde Fang",
+        "ZombieHorde Shamble",
+        "ZombieHorde Lurk",
+        "ZombieHorde Stench",
+        "ZombieHorde Crawl",
+        "ZombieHorde Bite",
+        "ZombieHorde Groan",
+        "ZombieHorde Moulder",
+        "ZombieHorde Bleak"
+    };
 }
