@@ -476,4 +476,16 @@ class MobNames
         "VampireLord Nightfall"
     };
 
+    List<string> WerewolfAlphaNames = new List<string>()
+    {
+        "WerewolfAlpha Fang",
+        "WerewolfAlpha Claw",
+        "WerewolfAlpha Shadow",
+        "WerewolfAlpha Moon",
+        "WerewolfAlpha Blood",
+        "WerewolfAlpha Night",
+        "WerewolfAlpha Howl",
+        "WerewolfAlpha Beast",
+        "WerewolfAlpha Wild",
+    };
 }
