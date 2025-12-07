@@ -502,4 +502,17 @@ class MobNames
         "ZombieHorde Moulder",
         "ZombieHorde Bleak"
     };
+
+    List<string> SkeletonMageNames = new List<string>()
+    {
+        "SkeletonMage Bone",
+        "SkeletonMage Skull",
+        "SkeletonMage Frost",
+        "SkeletonMage Shadow",
+        "SkeletonMage Flame",
+        "SkeletonMage Arcane",
+        "SkeletonMage Dark",
+        "SkeletonMage Chill",
+        "SkeletonMage Ember",
+    };
 }
