@@ -555,4 +555,17 @@ class MobNames
         "BansheeQueen Cry",
         "BansheeQueen Shadow"
     };
+
+    List<string> ImpSwarm = new List<string>()
+    {
+        "ImpSwarm Trick",
+        "ImpSwarm Mischief",
+        "ImpSwarm Bite",
+        "ImpSwarm Sneak",
+        "ImpSwarm Snap",
+        "ImpSwarm Fidget",
+        "ImpSwarm Pester",
+        "ImpSwarm Nibble",
+        "ImpSwarm Gremlin"
+    };
 }
