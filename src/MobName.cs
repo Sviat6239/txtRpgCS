@@ -529,4 +529,17 @@ class MobNames
         "GhoulKing Curse",
         "GhoulKing Wraith"
     };
+
+    List<string> WraithKnight = new List<string>()
+    {
+        "WraithKnight Shadow",
+        "WraithKnight Bone",
+        "WraithKnight Dark",
+        "WraithKnight Phantom",
+        "WraithKnight Shade",
+        "WraithKnight Hollow",
+        "WraithKnight Chill",
+        "WraithKnight Ghost",
+        "WraithKnight Night"
+    };
 }
