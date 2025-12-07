@@ -542,4 +542,17 @@ class MobNames
         "WraithKnight Ghost",
         "WraithKnight Night"
     };
+
+    List<string> BansheeQueen = new List<string>()
+    {
+        "BansheeQueen Wail",
+        "BansheeQueen Howl",
+        "BansheeQueen Shriek",
+        "BansheeQueen Moan",
+        "BansheeQueen Echo",
+        "BansheeQueen Lament",
+        "BansheeQueen Fade",
+        "BansheeQueen Cry",
+        "BansheeQueen Shadow"
+    };
 }
