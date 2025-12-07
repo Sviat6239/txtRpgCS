@@ -461,4 +461,19 @@ class MobNames
         "Alchemist Mist",
         "Alchemist Brewmaster"
     };
+
+    List<string> VampireLordNames = new List<string>()
+    {
+        "VampireLord Night",
+        "VampireLord Blood",
+        "VampireLord Fang",
+        "VampireLord Shadow",
+        "VampireLord Crimson",
+        "VampireLord Moon",
+        "VampireLord Dark",
+        "VampireLord Death",
+        "VampireLord Red",
+        "VampireLord Nightfall"
+    };
+
 }
