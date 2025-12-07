@@ -581,4 +581,19 @@ class MobNames
         "DragonWhelp Bite",
         "DragonWhelp Roar"
     };
+
+    List<string> AncientDragon = new List<string>()
+    {
+        "AncientDragon Flame",
+        "AncientDragon Shadow",
+        "AncientDragon Blaze",
+        "AncientDragon Fang",
+        "AncientDragon Ash",
+        "AncientDragon Ember",
+        "AncientDragon Wing",
+        "AncientDragon Tail",
+        "AncientDragon Roar",
+        "AncientDragon Breath"
+    };
+
 }
