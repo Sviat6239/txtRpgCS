@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
 
 class MobNames
 {
+    public Random random = new Random();
+
     List<string> GoblinNames = new List<string>()
     {
         "Goblin Gnaw",
@@ -595,5 +598,59 @@ class MobNames
         "AncientDragon Roar",
         "AncientDragon Breath"
     };
+
+    string GetRandomMob()
+    {
+        List<List<string>> allLists = new List<List<string>>()
+        {
+            GoblinNames,
+            OrcNames,
+            TrollNames,
+            SkeletonNames,
+            Zombie,
+            DragonNames,
+            VampireNames,
+            WraithNames,
+            BansheeNames,
+            ImpNames,
+            SlimeNames,
+            GolemNames,
+            ElementalNames,
+            HarpyNames,
+            MinotaurNames,
+            CyclopsNames,
+            MermaidNames,
+            SirensNames,
+            PhoenixNames,
+            GriffinNames,
+            HydraNames,
+            LichNames,
+            NecromancerNames,
+            DarkKnight,
+            PaladinNames,
+            RangerNames,
+            BerserNames,
+            BerserkerNames,
+            Shaman,
+            ClericNames,
+            MonkNames,
+            DruidNames,
+            Alchemist,
+            VampireLordNames,
+            WerewolfAlphaNames,
+            ZombieHordeNames,
+            SkeletonMageNames,
+            GhoulKing,
+            WraithKnight,
+            BansheeQueen,
+            ImpSwarm,
+            DragonWhelp,
+            AncientDragon
+        };
+
+        List<string> chosenList = allLists[random.Next(allLists.Count)];
+
+        return chosenList[random.Next(chosenList.Count)];
+    }
 
 }
