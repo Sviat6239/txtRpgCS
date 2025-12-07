@@ -407,4 +407,19 @@ class MobNames
         "Shaman Sun"
     };
 
+    List<string> ClericNames = new List<string>()
+    {
+        "Cleric Light",
+        "Cleric Dawn",
+        "Cleric Hope",
+        "Cleric Heal",
+        "Cleric Shield",
+        "Cleric Faith",
+        "Cleric Sun",
+        "Cleric Moon",
+        "Cleric Star",
+        "Cleric Guardian",
+
+    };
+
 }
