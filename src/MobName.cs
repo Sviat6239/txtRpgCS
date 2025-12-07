@@ -568,4 +568,17 @@ class MobNames
         "ImpSwarm Nibble",
         "ImpSwarm Gremlin"
     };
+
+    List<string> DragonWhelp = new List<string>()
+    {
+        "DragonWhelp Ember",
+        "DragonWhelp Fang",
+        "DragonWhelp Blaze",
+        "DragonWhelp Flame",
+        "DragonWhelp Ash",
+        "DragonWhelp Wing",
+        "DragonWhelp Tail",
+        "DragonWhelp Bite",
+        "DragonWhelp Roar"
+    };
 }
