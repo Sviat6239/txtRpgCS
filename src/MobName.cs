@@ -447,4 +447,18 @@ class MobNames
         "Druid River",
         "Druid Forest"
     };
+
+    List<string> Alchemist = new List<string>()
+    {
+        "Alchemist Brew",
+        "Alchemist Flame",
+        "Alchemist Poison",
+        "Alchemist Dust",
+        "Alchemist Stone",
+        "Alchemist Crystal",
+        "Alchemist Potion",
+        "Alchemist Vial",
+        "Alchemist Mist",
+        "Alchemist Brewmaster"
+    };
 }
