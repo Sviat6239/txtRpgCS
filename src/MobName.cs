@@ -515,4 +515,18 @@ class MobNames
         "SkeletonMage Chill",
         "SkeletonMage Ember",
     };
+
+    List<string> GhoulKing = new List<string>()
+    {
+        "GhoulKing Rot",
+        "GhoulKing Fang",
+        "GhoulKing Bite",
+        "GhoulKing Stench",
+        "GhoulKing Lurk",
+        "GhoulKing Groan",
+        "GhoulKing Shadow",
+        "GhoulKing Dark",
+        "GhoulKing Curse",
+        "GhoulKing Wraith"
+    };
 }
