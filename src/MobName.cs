@@ -419,7 +419,20 @@ class MobNames
         "Cleric Moon",
         "Cleric Star",
         "Cleric Guardian",
+    };
 
+    List<string> MonkNames = new List<string>()
+    {
+        "Monk Fist",
+        "Monk Shadow",
+        "Monk Wind",
+        "Monk Stone",
+        "Monk Fire",
+        "Monk Iron",
+        "Monk Tiger",
+        "Monk Dragon",
+        "Monk Lotus",
+        "Monk Spirit"
     };
 
 }
