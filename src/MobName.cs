@@ -435,4 +435,16 @@ class MobNames
         "Monk Spirit"
     };
 
+    List<string> DruidNames = new List<string>()
+    {
+        "Druid Leaf",
+        "Druid Wolf",
+        "Druid Bear",
+        "Druid Hawk",
+        "Druid Moon",
+        "Druid Sun",
+        "Druid Storm",
+        "Druid River",
+        "Druid Forest"
+    };
 }
