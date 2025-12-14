@@ -17,11 +17,11 @@ static class Items
 
     public static readonly Bag LeatherBag = new Bag("Leather Bag", 300, 30, 1.0);
     public static readonly Bag ChainmailBag = new Bag("Chainmail Bag", 500, 50, 2.5);
-    public static readonly Bag LeatherBackPack = new Bag("Leather BackPack", 600, 60, 3.0);
-    public static readonly Bag ChainmailBackPack = new Bag("Chainmail BackPack", 700, 70, 4.0);
     public static readonly Bag PlatemailBag = new Bag("Platemail Bag", 850, 85, 5.0);
-    public static readonly Bag PlatemailBackPack = new Bag("Platemail BackPack", 1000, 100, 6.5);
     public static readonly Bag DragonleaterBag = new Bag("dragonleather Bag", 1800, 150, 3.0);
-    public static readonly Bag DragonleaterBackPack = new Bag("dragonleather BackPack", 2200, 200, 4.0);
+    public static readonly Backpack LeatherBackPack = new Backpack("Leather BackPack", 600, 60, 3.0);
+    public static readonly Backpack ChainmailBackPack = new Backpack("Chainmail BackPack", 700, 70, 4.0);
+    public static readonly Backpack PlatemailBackPack = new Backpack("Platemail BackPack", 1000, 100, 6.5);
+    public static readonly Backpack DragonleaterBackPack = new Backpack("dragonleather BackPack", 2200, 200, 4.0);
 
 }
