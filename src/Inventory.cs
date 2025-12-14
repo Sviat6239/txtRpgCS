@@ -18,6 +18,12 @@ class Inventory
     private Entity owner;
     public List<InventorySlot> slots = new();
 
+    public Bag BagSlot1 { get; private set; } = null;
+    public Bag BagSlot2 { get; private set; } = null;
+    public Backpack BackpackSlot { get; private set; } = null;
+
+
+
     public Inventory(Entity owner)
     {
         this.owner = owner;
@@ -40,7 +46,7 @@ class Inventory
         while (amount > 0)
         {
             InventorySlot slot = slots.Find(s =>
-                s.Item.name == item.name && s.Count < s.Item.maxStack);
+                s.Item.GetType() == item.GetType() && s.Count < s.Item.maxStack);
 
             if (slot != null)
             {
@@ -60,9 +66,63 @@ class Inventory
         return true;
     }
 
+    public bool EquipItem(Item item)
+    {
+        if (item is Backpack bp)
+        {
+            if (BackpackSlot != null) return false;
+            BackpackSlot = bp;
+            bp.Apply(owner);
+            return true;
+        }
+        else if (item is Bag bag)
+        {
+            if (BagSlot1 == null)
+            {
+                BagSlot1 = bag;
+                bag.Apply(owner);
+                return true;
+            }
+            else if (BagSlot2 == null)
+            {
+                BagSlot2 = bag;
+                bag.Apply(owner);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        return false;
+    }
+
+    public void UnequipItem(Item item)
+    {
+        if (item is Backpack bp && BackpackSlot == bp)
+        {
+            bp.Remove(owner);
+            BackpackSlot = null;
+        }
+        else if (item is Bag bag)
+        {
+            if (BagSlot1 == bag)
+            {
+                bag.Remove(owner);
+                BagSlot1 = null;
+            }
+            else if (BagSlot2 == bag)
+            {
+                bag.Remove(owner);
+                BagSlot2 = null;
+            }
+        }
+    }
+
     public void RemoveItem(Item item, int amount)
     {
-        InventorySlot slot = slots.Find(s => s.Item.name == item.name);
+        InventorySlot slot = slots.Find(s => s.Item.GetType() == item.GetType());
         if (slot == null) return;
 
         slot.Count -= amount;
@@ -70,4 +130,3 @@ class Inventory
             slots.Remove(slot);
     }
 }
-
