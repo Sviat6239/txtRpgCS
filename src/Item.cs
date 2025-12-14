@@ -25,8 +25,8 @@ class Item
 
 class Food : Item
 {
-    public Food(string name, int maxStack, int nutrition, double weight)
-        : base(name, maxStack, 0, 0, true, nutrition, weight)
+    public Food(string name, int maxStack, int nutrition, int healing, double weight)
+        : base(name, maxStack, 0, 0, true, nutrition, healing, weight)
     {
     }
 }

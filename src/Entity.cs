@@ -30,7 +30,7 @@ class Entity
 
     public double FreeWeight()
     {
-        return Inventory.MaxWeight - Inventory.CurrentWeight();
+        return MaxCarryWeight - Inventory.CurrentWeight();
     }
 
     public void TakeDamage(int amount)
