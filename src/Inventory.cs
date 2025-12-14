@@ -1,31 +1,6 @@
 using System;
 using System.Collections.Generic;
 
-class Item
-{
-    public string name;
-    public int maxStack;
-    public int durability;
-    public int damage;
-    public int healing;
-    public double weight;
-    public bool isConsumable;
-    public int nutrition;
-
-    public Item(string name, int maxStack, int durability, int damage,
-        bool isConsumable, int nutrition, int healing, double weight)
-    {
-        this.name = name;
-        this.maxStack = maxStack;
-        this.durability = durability;
-        this.damage = damage;
-        this.isConsumable = isConsumable;
-        this.nutrition = nutrition;
-        this.healing = healing;
-        this.weight = weight;
-    }
-}
-
 class InventorySlot
 {
     public Item Item;
@@ -40,12 +15,12 @@ class InventorySlot
 
 class Inventory
 {
-    public double MaxWeight { get; }
+    private Entity owner;
     public List<InventorySlot> slots = new();
 
-    public Inventory(double maxWeight)
+    public Inventory(Entity owner)
     {
-        MaxWeight = maxWeight;
+        this.owner = owner;
     }
 
     public double CurrentWeight()
@@ -59,7 +34,7 @@ class Inventory
     public bool AddItem(Item item, int amount)
     {
         double addedWeight = item.weight * amount;
-        if (CurrentWeight() + addedWeight > MaxWeight)
+        if (CurrentWeight() + addedWeight > owner.MaxCarryWeight)
             return false;
 
         while (amount > 0)
@@ -81,6 +56,7 @@ class Inventory
                 amount -= toAdd;
             }
         }
+
         return true;
     }
 

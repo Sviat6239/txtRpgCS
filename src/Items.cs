@@ -1,6 +1,21 @@
-class Items
+using System;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.VisualBasic;
+
+static class Items
 {
-    public Item Sword = new Item("Sword", 1, 500, 7, false, 0, 0, 5.0);
-    public Item HealthPotion = new Item("Health Potion", 10, 1, 0, true, 0, 20, 0.5);
-    public Item Bread = new Item("Bread", 10, 1, 0, true, 13, 5, 1);
+    public static readonly Food Bread = new Food("Bread", 20, 5, 0.2);
+    public static readonly Food Apple = new Food("Apple", 20, 3, 0.1);
+    public static readonly Food Cookie = new Food("Cookie", 40, 1, 0.05);
+    public static readonly Food RawBeef = new Food("Raw Beef", 20, 2, 0.3);
+    public static readonly Food RawPorkchop = new Food("Raw Porkchop", 20, 2, 0.3);
+    public static readonly Food RawChicken = new Food("Raw Chicken", 20, 2, 0.3);
+    public static readonly Food RawMutton = new Food("Raw Mutton", 20, 2, 0.3);
+    public static readonly Food Steak = new Food("Steak", 20, 8, 0.3);
+    public static readonly Food CookedPorkchop = new Food("Cooked Porkchop", 20, 8, 0.3);
+    public static readonly Food CookedChiken = new Food("Cooked Chicken", 20, 6, 0.3);
+    public static readonly Food CookedMutton = new Food("Cooked Mutton", 20, 8, 0.3);
+
+
+
 }
