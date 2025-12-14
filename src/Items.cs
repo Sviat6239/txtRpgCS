@@ -45,6 +45,11 @@ static class Items
     public static readonly Leggings SteelLeggings = new Leggings("Steel Leggings", 15, 850, 7.3);
     public static readonly Leggings DragonleatherLeggings = new Leggings("Dragonleather Leggings", 21, 1500, 3.0);
 
-
+    public static readonly Boots LeatherBoots = new Boots("Leather Boots", 3, 120, 0.8);
+    public static readonly Boots ChainmailBoots = new Boots("CHainmail Boots", 5, 250, 1.5);
+    public static readonly Boots PlatemailBoots = new Boots("Platemail Boots", 7, 400, 2.5);
+    public static readonly Boots IronBoots = new Boots("Iron Boots", 10, 550, 3.5);
+    public static readonly Boots SteelBoots = new Boots("Steal Boots", 13, 800, 4.0);
+    public static readonly Boots DragonLeatherBoots = new Boots("Dragonleather Boots", 17, 1300, 2.0);
 
 }
