@@ -2,30 +2,28 @@ using System;
 
 class Entity
 {
-    public int HP;
+    public int HP = 100;
     public int DMG;
     public int XP;
-    public int hunger;
+    public int hunger = 100;
 
-    public double maxWeight;
-    public Inventory inventory;
+    public Inventory Inventory { get; }
 
     private Random rng = new Random();
 
     public Entity(double maxWeight)
     {
-        this.maxWeight = maxWeight;
-        inventory = new Inventory(this);
+        Inventory = new Inventory(maxWeight);
     }
 
     public double CurrentCarryWeight()
     {
-        return inventory.CurrentWeight();
+        return Inventory.CurrentWeight();
     }
 
     public double FreeWeight()
     {
-        return maxWeight - inventory.CurrentWeight();
+        return Inventory.MaxWeight - Inventory.CurrentWeight();
     }
 
     public void TakeDamage(int amount)
@@ -43,19 +41,17 @@ class Entity
 
     public void EatFood(string itemName)
     {
-        InventorySlot slot = inventory.slots.Find(s =>
+        InventorySlot slot = Inventory.slots.Find(s =>
             s.Item.name == itemName && s.Item.isConsumable);
 
-        if (slot != null)
-        {
-            hunger += slot.Item.nutrition;
-            if (hunger > 100)
-                hunger = 100;
+        if (slot == null) return;
 
-            Healing(slot.Item.healing);
+        hunger += slot.Item.nutrition;
+        if (hunger > 100)
+            hunger = 100;
 
-            inventory.RemoveItem(slot.Item, 1);
-        }
+        Healing(slot.Item.healing);
+        Inventory.RemoveItem(slot.Item, 1);
     }
 
     public void DecreaseHungerPerTurn()
@@ -64,20 +60,11 @@ class Entity
         if (HP < 50)
             hungerLoss *= 2;
 
-        Starve(hungerLoss);
-        IfStarve();
-    }
-
-    public void Starve(int amount)
-    {
-        hunger -= amount;
+        hunger -= hungerLoss;
         if (hunger < 0)
             hunger = 0;
-    }
 
-    public void IfStarve()
-    {
-        if (hunger <= 0)
+        if (hunger == 0)
             TakeDamage(3);
     }
 }

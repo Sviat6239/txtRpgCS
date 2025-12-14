@@ -40,12 +40,12 @@ class InventorySlot
 
 class Inventory
 {
-    private Entity owner;
-    public List<InventorySlot> slots = new List<InventorySlot>();
+    public double MaxWeight { get; }
+    public List<InventorySlot> slots = new();
 
-    public Inventory(Entity owner)
+    public Inventory(double maxWeight)
     {
-        this.owner = owner;
+        MaxWeight = maxWeight;
     }
 
     public double CurrentWeight()
@@ -53,18 +53,14 @@ class Inventory
         double total = 0;
         foreach (var slot in slots)
             total += slot.Count * slot.Item.weight;
-
         return total;
     }
 
     public bool AddItem(Item item, int amount)
     {
         double addedWeight = item.weight * amount;
-
-        if (CurrentWeight() + addedWeight > owner.maxWeight)
-        {
+        if (CurrentWeight() + addedWeight > MaxWeight)
             return false;
-        }
 
         while (amount > 0)
         {
@@ -85,7 +81,6 @@ class Inventory
                 amount -= toAdd;
             }
         }
-
         return true;
     }
 
@@ -95,7 +90,6 @@ class Inventory
         if (slot == null) return;
 
         slot.Count -= amount;
-
         if (slot.Count <= 0)
             slots.Remove(slot);
     }
