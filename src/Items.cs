@@ -31,6 +31,11 @@ static class Items
     public static readonly Helmet SteelHelmet = new Helmet("Steel Helmet", 12, 740, 3.2);
     public static readonly Helmet DragonletherHelmet = new Helmet("Dragonleather Helmet", 18, 1200, 1.5);
 
-
+    public static readonly Chestplate leatherChestplate = new Chestplate("Leather Chestplate", 6, 170, 1.5);
+    public static readonly Chestplate ChainmailChestplate = new Chestplate("Chainmail Chestplate", 8, 300, 3.0);
+    public static readonly Chestplate PlatemailChestplate = new Chestplate("Platemail ChestPlate", 12, 450, 5.0);
+    public static readonly Chestplate IronChestplate = new Chestplate("Iron Chestplate", 15, 650, 7.0);
+    public static readonly Chestplate SteelChestPlate = new Chestplate("Steel Chestplate", 18, 900, 8.5);
+    public static readonly Chestplate DragonlestherChestplate = new Chestplate("Dragonleather Chestplate", 25, 1800, 3.5);
 
 }
