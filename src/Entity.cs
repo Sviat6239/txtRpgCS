@@ -10,8 +10,7 @@ class Entity
     public double BaseMaxWeight;
     public double BonusCarryWeight;
 
-    public double MaxCarryWeight =>
-        BaseMaxWeight + BonusCarryWeight;
+    public double MaxCarryWeight => BaseMaxWeight + BonusCarryWeight;
 
     public Inventory Inventory { get; }
 
@@ -23,19 +22,39 @@ class Entity
         Inventory = new Inventory(this);
     }
 
-    public double CurrentCarryWeight()
+    public int Defense
     {
-        return Inventory.CurrentWeight();
+        get
+        {
+            int totalDefense = 0;
+            if (Inventory == null) return 0;
+
+            if (Inventory.HelmetSlot != null)
+                totalDefense += Inventory.HelmetSlot.Defense;
+
+            if (Inventory.ChestplateSlot != null)
+                totalDefense += Inventory.ChestplateSlot.Defense;
+
+            if (Inventory.LeggingsSlot != null)
+                totalDefense += Inventory.LeggingsSlot.Defense;
+
+            if (Inventory.BootsSlot != null)
+                totalDefense += Inventory.BootsSlot.Defense;
+
+            return totalDefense;
+        }
     }
 
-    public double FreeWeight()
-    {
-        return MaxCarryWeight - Inventory.CurrentWeight();
-    }
+    public double CurrentCarryWeight() => Inventory.CurrentWeight();
+
+    public double FreeWeight() => MaxCarryWeight - Inventory.CurrentWeight();
 
     public void TakeDamage(int amount)
     {
-        HP -= amount;
+        int damageAfterDefense = amount - Defense * 3;
+        if (damageAfterDefense < 0) damageAfterDefense = 0;
+
+        HP -= damageAfterDefense;
         if (HP < 0) HP = 0;
     }
 
