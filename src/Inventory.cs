@@ -147,6 +147,22 @@ class Inventory
                 BagSlot2 = null;
             }
         }
+        else if (item is Helmet hl && HelmetSlot == hl)
+        {
+            HelmetSlot = null;
+        }
+        else if (item is Chestplate cp && ChestplateSlot == cp)
+        {
+            ChestplateSlot = null;
+        }
+        else if (item is Leggings lg && LeggingsSlot == lg)
+        {
+            LeggingsSlot = null;
+        }
+        else if (item is Boots bt && BootsSlot == bt)
+        {
+            BootsSlot = null;
+        }
     }
 
     public void RemoveItem(Item item, int amount)
