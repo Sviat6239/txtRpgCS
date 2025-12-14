@@ -70,8 +70,8 @@ class Bag : Item
 {
     public double CarryBonus;
 
-    public Bag(string name, double carryBonus, double weight)
-        : base(name, 1, 100, 0, false, 0, 0, weight)
+    public Bag(string name, int durability, double carryBonus, double weight)
+        : base(name, 1, durability, 0, false, 0, 0, weight)
     {
         CarryBonus = carryBonus;
     }
