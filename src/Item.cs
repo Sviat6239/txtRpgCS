@@ -66,6 +66,38 @@ class Armor : Item
     }
 }
 
+class Helmet : Armor
+{
+    public Helmet(string name, int defense, int durability, double weight)
+        : base(name, defense, durability, weight)
+    {
+    }
+}
+
+class Chestplate : Armor
+{
+    public Chestplate(string name, int defense, int durability, double weight)
+        : base(name, defense, durability, weight)
+    {
+    }
+}
+
+class Leggings : Armor
+{
+    public Leggings(string name, int defense, int durability, double weight)
+        : base(name, defense, durability, weight)
+    {
+    }
+}
+
+class Boots : Armor
+{
+    public Boots(string name, int defense, int durability, double weight)
+        : base(name, defense, durability, weight)
+    {
+    }
+}
+
 class Bag : Item
 {
     public double CarryBonus;
@@ -84,5 +116,13 @@ class Bag : Item
     public void Remove(Entity entity)
     {
         entity.BonusCarryWeight -= CarryBonus;
+    }
+}
+
+class Backpack : Bag
+{
+    public Backpack(string name, int durability, double carryBonus, double weight)
+        : base(name, durability, carryBonus, weight)
+    {
     }
 }
