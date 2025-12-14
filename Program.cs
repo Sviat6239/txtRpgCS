@@ -10,6 +10,7 @@ class Program
     static void Main()
     {
         bool isRunning = true;
+        long turnCount = 0;
 
         Console.WriteLine("Welcome to simple text RPG!");
 
