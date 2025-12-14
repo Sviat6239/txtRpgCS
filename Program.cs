@@ -16,7 +16,7 @@ class Program
 
         while (isRunning == true)
         {
-
+            turnCount++;
 
         }
 
