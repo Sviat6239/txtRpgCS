@@ -24,4 +24,13 @@ static class Items
     public static readonly Backpack PlatemailBackPack = new Backpack("Platemail BackPack", 1000, 100, 6.5);
     public static readonly Backpack DragonleaterBackPack = new Backpack("dragonleather BackPack", 2200, 200, 4.0);
 
+    public static readonly Helmet LeatherHelmet = new Helmet("Leather Helmet", 2, 110, 0.5);
+    public static readonly Helmet ChainmailHelmet = new Helmet("Chainmail Helmet", 4, 220, 1.0);
+    public static readonly Helmet PlatemailHelmet = new Helmet("Platemail Helmet", 6, 350, 2.0);
+    public static readonly Helmet IronHelmet = new Helmet("Iron Helmet", 9, 500, 2.7);
+    public static readonly Helmet SteelHelmet = new Helmet("Steel Helmet", 12, 740, 3.2);
+    public static readonly Helmet DragonletherHelmet = new Helmet("Dragonleather Helmet", 18, 1200, 1.5);
+
+
+
 }
