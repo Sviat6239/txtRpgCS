@@ -2,18 +2,25 @@ using System;
 
 class Entity
 {
-    public int HP = 100;
+    public int HP;
     public int DMG;
     public int XP;
-    public int hunger = 100;
+    public int hunger;
+
+    public double BaseMaxWeight;
+    public double BonusCarryWeight;
+
+    public double MaxCarryWeight =>
+        BaseMaxWeight + BonusCarryWeight;
 
     public Inventory Inventory { get; }
 
     private Random rng = new Random();
 
-    public Entity(double maxWeight)
+    public Entity(double baseMaxWeight)
     {
-        Inventory = new Inventory(maxWeight);
+        BaseMaxWeight = baseMaxWeight;
+        Inventory = new Inventory(this);
     }
 
     public double CurrentCarryWeight()
