@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 class InventorySlot
 {
@@ -22,6 +23,10 @@ class Inventory
     public Bag BagSlot2 { get; private set; } = null;
     public Backpack BackpackSlot { get; private set; } = null;
 
+    public Helmet HelmetSlot { get; private set; } = null;
+    public Chestplate ChestplateSlot { get; private set; } = null;
+    public Leggings LeggingsSlot { get; private set; } = null;
+    public Boots BootsSlot { get; private set; } = null;
 
 
     public Inventory(Entity owner)
@@ -93,6 +98,30 @@ class Inventory
             {
                 return false;
             }
+        }
+        else if (item is Helmet hl)
+        {
+            if (HelmetSlot != null) return false;
+            HelmetSlot = hl;
+            return true;
+        }
+        else if (item is Chestplate cp)
+        {
+            if (ChestplateSlot != null) return false;
+            ChestplateSlot = cp;
+            return true;
+        }
+        else if (item is Leggings lg)
+        {
+            if (LeggingsSlot != null) return false;
+            LeggingsSlot = lg;
+            return true;
+        }
+        else if (item is Boots bt)
+        {
+            if (BootsSlot != null) return false;
+            BootsSlot = bt;
+            return true;
         }
 
         return false;
