@@ -8,9 +8,10 @@ class Item
     public double weight;
     public bool isConsumable;
     public int nutrition;
+    public bool isPlaceble;
 
     public Item(string name, int maxStack, int durability, int damage,
-        bool isConsumable, int nutrition, int healing, double weight)
+        bool isConsumable, int nutrition, int healing, double weight, bool isPlaceble)
     {
         this.name = name;
         this.maxStack = maxStack;
@@ -20,37 +21,38 @@ class Item
         this.nutrition = nutrition;
         this.healing = healing;
         this.weight = weight;
+        this.isPlaceble = isPlaceble;
     }
 }
 
 class Food : Item
 {
-    public Food(string name, int maxStack, int nutrition, int healing, double weight)
-        : base(name, maxStack, 0, 0, true, nutrition, healing, weight)
+    public Food(string name, int maxStack, int nutrition, int healing, double weight, bool isPlaceble)
+        : base(name, maxStack, 0, 0, true, nutrition, healing, weight, false)
     {
     }
 }
 
 class Potion : Item
 {
-    public Potion(string name, int maxStack, int healing, double weight)
-        : base(name, maxStack, 0, 0, true, 0, healing, weight)
+    public Potion(string name, int maxStack, int healing, double weight, bool isPlaceble)
+        : base(name, maxStack, 0, 0, true, 0, healing, weight, false)
     {
     }
 }
 
 class Weapon : Item
 {
-    public Weapon(string name, int durability, int damage, double weight)
-        : base(name, 1, durability, damage, false, 0, 0, weight)
+    public Weapon(string name, int durability, int damage, double weight, bool isplaceble)
+        : base(name, 1, durability, damage, false, 0, 0, weight, false)
     {
     }
 }
 
 class Tool : Item
 {
-    public Tool(string name, int durability, double weight)
-        : base(name, 1, durability, 0, false, 0, 0, weight)
+    public Tool(string name, int durability, double weight, bool isPlaceble)
+        : base(name, 1, durability, 0, false, 0, 0, weight, false)
     {
     }
 }
@@ -59,8 +61,8 @@ class Armor : Item
 {
     public int Defense;
 
-    public Armor(string name, int defense, int durability, double weight)
-        : base(name, 1, durability, 0, false, 0, 0, weight)
+    public Armor(string name, int defense, int durability, double weight, bool isPlaceble)
+        : base(name, 1, durability, 0, false, 0, 0, weight, false)
     {
         Defense = defense;
     }
@@ -68,32 +70,32 @@ class Armor : Item
 
 class Helmet : Armor
 {
-    public Helmet(string name, int defense, int durability, double weight)
-        : base(name, defense, durability, weight)
+    public Helmet(string name, int defense, int durability, double weight, bool isPlaceble)
+        : base(name, defense, durability, weight, false)
     {
     }
 }
 
 class Chestplate : Armor
 {
-    public Chestplate(string name, int defense, int durability, double weight)
-        : base(name, defense, durability, weight)
+    public Chestplate(string name, int defense, int durability, double weight, bool isPlaceble)
+        : base(name, defense, durability, weight, false)
     {
     }
 }
 
 class Leggings : Armor
 {
-    public Leggings(string name, int defense, int durability, double weight)
-        : base(name, defense, durability, weight)
+    public Leggings(string name, int defense, int durability, double weight, bool isPlaceble)
+        : base(name, defense, durability, weight, false)
     {
     }
 }
 
 class Boots : Armor
 {
-    public Boots(string name, int defense, int durability, double weight)
-        : base(name, defense, durability, weight)
+    public Boots(string name, int defense, int durability, double weight, bool isPlaceble)
+        : base(name, defense, durability, weight, false)
     {
     }
 }
@@ -102,8 +104,8 @@ class Bag : Item
 {
     public double CarryBonus;
 
-    public Bag(string name, int durability, double carryBonus, double weight)
-        : base(name, 1, durability, 0, false, 0, 0, weight)
+    public Bag(string name, int durability, double carryBonus, double weight, bool isPlaceble)
+        : base(name, 1, durability, 0, false, 0, 0, weight, false)
     {
         CarryBonus = carryBonus;
     }
@@ -121,8 +123,27 @@ class Bag : Item
 
 class Backpack : Bag
 {
-    public Backpack(string name, int durability, double carryBonus, double weight)
-        : base(name, durability, carryBonus, weight)
+    public Backpack(string name, int durability, double carryBonus, double weight, bool isPlaceble)
+        : base(name, durability, carryBonus, weight, false)
     {
+    }
+}
+
+class BlockItem : Item
+{
+    public BlockItem(string name, int maxStack, int durability, double weight, bool isPlaceble)
+    : base(name, maxStack, durability, 0, false, 0, 0, weight, true)
+    {
+
+    }
+}
+
+class Block : BlockItem
+{
+    public Block(string name, int maxStack, int durability, double weight, bool isPlaceble)
+    : base(name, maxStack, durability, weight, true)
+    {
+
+
     }
 }
