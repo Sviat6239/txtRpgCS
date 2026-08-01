@@ -11,7 +11,9 @@ class Program
         Console.CursorVisible = false;
         Console.Clear();
 
-        Chunk currentChunk = new Chunk(0, 0);
+        int currentChunkX = 0;
+        int currentChunkY = 0;
+        Chunk currentChunk = new Chunk(currentChunkX, currentChunkY);
 
         int playerX = 2;
         int playerY = 1;
@@ -76,11 +78,41 @@ class Program
             if (key.Key == ConsoleKey.D || key.Key == ConsoleKey.RightArrow) nextX++;
             if (key.Key == ConsoleKey.Escape) break;
 
-            Tile targetTile = currentChunk.Map[nextX, nextY];
-            if (!targetTile.IsSolid)
+            Tile targetTile;
+
+            if (nextX >= Chunk.Width)
             {
-                playerX = nextX;
-                playerY = nextY;
+                currentChunkX++;
+                playerX = 0;
+                currentChunk = new Chunk(currentChunkX, currentChunkY);
+            }
+            else if (nextX < 0)
+            {
+                currentChunkX--;
+                playerX = Chunk.Width - 1;
+                currentChunk = new Chunk(currentChunkX, currentChunkY);
+            }
+            else if (nextY >= Chunk.Height)
+            {
+                currentChunkY++;
+                playerY = 0;
+                currentChunk = new Chunk(currentChunkX, currentChunkY);
+            }
+            else if (nextY < 0)
+            {
+                currentChunkY--;
+                playerY = Chunk.Height - 1;
+                currentChunk = new Chunk(currentChunkX, currentChunkY);
+            }
+            else
+            {
+                targetTile = currentChunk.Map[nextX, nextY];
+
+                if (!targetTile.IsSolid)
+                {
+                    playerX = nextX;
+                    playerY = nextY;
+                }
             }
         }
     }
