@@ -20,44 +20,49 @@ class Program
         {
             Console.SetCursorPosition(0, 0);
 
+            ConsoleColor lastColor = ConsoleColor.Black;
+
             for (int y = 0; y < Chunk.Height; y++)
             {
                 for (int x = 0; x < Chunk.Width; x++)
                 {
                     if (x == playerX && y == playerY)
                     {
-                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        if (lastColor != ConsoleColor.Yellow)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            lastColor = ConsoleColor.Yellow;
+                        }
                         Console.Write('@');
                     }
                     else
                     {
                         Tile tile = currentChunk.Map[x, y];
 
-                        switch (tile.Type)
+                        (ConsoleColor color, char symbol) = tile.Type switch
                         {
-                            case TileType.Grass:
-                                Console.ForegroundColor = ConsoleColor.Green;
-                                Console.Write('.');
-                                break;
-                            case TileType.Stone:
-                                Console.ForegroundColor = ConsoleColor.DarkGray;
-                                Console.Write('#');
-                                break;
-                            case TileType.Water:
-                                Console.ForegroundColor = ConsoleColor.Blue;
-                                Console.Write('~');
-                                break;
-                            case TileType.Dirt:
-                                Console.ForegroundColor = ConsoleColor.DarkYellow;
-                                Console.Write(':');
-                                break;
-                            case TileType.Air:
-                                Console.Write(' ');
-                                break;
+                            TileType.Grass => (ConsoleColor.Green, '.'),
+                            TileType.Stone => (ConsoleColor.DarkGray, '#'),
+                            TileType.Water => (ConsoleColor.Blue, '~'),
+                            TileType.Dirt => (ConsoleColor.DarkYellow, ':'),
+                            _ => (ConsoleColor.White, ' ')
+                        };
+
+                        if (color != lastColor)
+                        {
+                            Console.ForegroundColor = color;
+                            lastColor = color;
                         }
+
+                        Console.Write(symbol);
                     }
                 }
                 Console.WriteLine();
+            }
+
+            while (Console.KeyAvailable)
+            {
+                Console.ReadKey(true);
             }
 
             ConsoleKeyInfo key = Console.ReadKey(true);
