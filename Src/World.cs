@@ -1,4 +1,4 @@
-namespace txtRPG.src.World;
+namespace txtRpgCS.Src.World;
 
 public class World
 {

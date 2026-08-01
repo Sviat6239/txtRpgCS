@@ -1,4 +1,4 @@
-namespace txtRPG.src.Tile;
+namespace txtRpgCS.Src.Tile;
 
 public enum TileType
 {
@@ -13,7 +13,7 @@ public enum TileType
 
 public class Tile
 {
-    public TileType type { get; set; }
+    public TileType Type { get; set; }
     public int Hp { get; set; }
     public int CordX { get; set; }
     public int CordY { get; set; }
@@ -56,6 +56,7 @@ public class Tile
                 Hp = 0;
                 IsSolid = false;
                 IsBreakable = false;
+                break;
         }
     }
 }

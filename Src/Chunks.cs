@@ -1,11 +1,11 @@
-namespace txtRPG.src.Chunk;
+namespace txtRpgCS.Src.Chunk;
 
-using txtRPG.src.Tile;
+using txtRpgCS.Src.Tile;
 
 public class Chunk
 {
-    public const int Width = 512;
-    public const int Height = 512;
+    public const int Width = 128;
+    public const int Height = 48;
 
     public int CordX { get; set; }
     public int CordY { get; set; }

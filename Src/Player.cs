@@ -1,4 +1,4 @@
-namespace txtRPG.src.Player;
+namespace txtRpgCS.Src.Player;
 
 public class Player
 {
