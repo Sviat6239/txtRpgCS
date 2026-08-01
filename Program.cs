@@ -1,0 +1,67 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.CursorVisible = false;
+
+        char[,] map = {
+            { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#' },
+            { '#', '.', '.', '.', '#', '.', '.', '.', 'T', '#' },
+            { '#', '.', 'T', '.', '#', '.', '~', '~', '.', '#' },
+            { '#', '.', '.', '.', '.', '.', '~', '~', '.', '#' },
+            { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#' }
+        };
+
+        int playerX = 2;
+        int playerY = 1;
+
+        while (true)
+        {
+            Console.SetCursorPosition(0, 0);
+
+            for (int y = 0; y < map.GetLength(0); y++)
+            {
+                for (int x = 0; x < map.GetLength(1); x++)
+                {
+                    if (x == playerX && y == playerY)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write('@');
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = map[y, x] switch
+                        {
+                            '#' => ConsoleColor.DarkGray,
+                            '.' => ConsoleColor.Green,
+                            '~' => ConsoleColor.Blue,
+                            'T' => ConsoleColor.DarkGreen,
+                            _ => ConsoleColor.White
+                        };
+                        Console.Write(map[y, x]);
+                    }
+                }
+                Console.WriteLine();
+            }
+
+            ConsoleKeyInfo key = Console.ReadKey(true);
+
+            int nextX = playerX;
+            int nextY = playerY;
+
+            if (key.Key == ConsoleKey.W || key.Key == ConsoleKey.UpArrow) nextY--;
+            if (key.Key == ConsoleKey.S || key.Key == ConsoleKey.DownArrow) nextY++;
+            if (key.Key == ConsoleKey.A || key.Key == ConsoleKey.LeftArrow) nextX--;
+            if (key.Key == ConsoleKey.D || key.Key == ConsoleKey.RightArrow) nextX++;
+            if (key.Key == ConsoleKey.Escape) break;
+
+            if (map[nextY, nextX] != '#')
+            {
+                playerX = nextX;
+                playerY = nextY;
+            }
+        }
+    }
+}
