@@ -6,7 +6,7 @@ public enum TileType
     Grass,
     Dirt,
     Stone,
-    Coblestone,
+    Cobblestone,
     Water,
 
 }
@@ -47,7 +47,7 @@ public class Tile
                 IsSolid = true;
                 IsBreakable = true;
                 break;
-            case TileType.Coblestone:
+            case TileType.Cobblestone:
                 Hp = 4;
                 IsSolid = true;
                 IsBreakable = true;
